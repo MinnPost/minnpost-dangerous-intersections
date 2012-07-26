@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>MinnPost</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+<script type='text/javascript' src='//s7.addthis.com/js/250/addthis_widget.js#async=1'></script>
+<link rel="shortcut icon" href="http://www.minnpost.com//sites/default/themes/siteskin/favicon.ico" type="image/x-icon" />
+<meta name="keywords" content="Mark Dayton,Minnesota DFL,Minnesota GOP,Minnesota Legislature,Vikings Stadium,Voter ID Amendment" />
+<meta name="description" content="  " />
+<meta property="og:title" content="The 2012 Legislative session: What did they pass?"/>
+<meta property="og:site_name" content="MinnPost"/>
+<meta property="og:description" content="Explore bills by category, investigate which bills Gov. Dayton vetoed, and search by your legislators.
+"/>
+<meta property="og:image" content="http://www.minnpost.com/sites/default/files/images/thumbnails/fullpagearticles/BillExplorerGraphic3.png"/>
+<link rel="apple-touch-icon" href="http://www.minnpost.com//sites/default/themes/siteskin/inc/images/apple-touch-icon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  <link type="text/css" rel="stylesheet" media="all" href="http://www.minnpost.com/sites/default/files/css/css_117735d70d328fde73465d234e0d6145.css" />
+<link type="text/css" rel="stylesheet" media="screen" href="http://www.minnpost.com/sites/default/files/css/css_d59702640f3a018434b089a23d5f9360.css" />
+<link type="text/css" rel="stylesheet" media="print" href="http://www.minnpost.com/sites/default/files/css/css_9893031b33c83f7dac84142a4217929e.css" />
+  <!--[if IE]>
+      <link rel="stylesheet" href="http://www.minnpost.com/sites/default/themes/derma/inc/css/ie.css?b" type="text/css">
+  <![endif]-->
+    <script type="text/javascript" src="http://www.minnpost.com/sites/default/files/js/js_956f6bec814fd4eca43cced7fa024bdd.js"></script>
+<script type="text/javascript" src="http://www.minnpost.com/sites/all/libraries/tinymce/jscripts/tiny_mce/tiny_mce.js?t"></script>
+</head>
+<body class="not-front logged-in page-node node-type-article one-sidebar sidebar-right admin-nw admin-vertical admin-df  section-data section-data-id-2012 section-data-id-2012-id-05 section-data-id-2012-id-05-how-we-built-legislative-bill-explorer one-sidebar sidebar-right">
+<div class="outside-embeddable-container">
+
+  <!-- START: Embeddable -->
+  <div class="node-body fieldlayout node-field-body">
+    <style type="text/css">
+      @import url('https://s3.amazonaws.com/data.minnpost/js/leaflet-master-20120531/leaflet.css');
+      @import url('https://s3.amazonaws.com/data.minnpost/js/leaflet-addons-master-20120531/leaflet-addons.css');
+    </style>
+    
+    <style type="text/css">
+      #minnpost-dangerous-intersections-application {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .clear {
+        clear: both;
+      }
+      
+      .js-dependent,
+      .hide {
+        display: none;
+      }
+      
+      .footnote {
+        font-size: .75em;
+        font-style: italic;
+        color: #414141;
+        margin-top: 1em;
+      }
+      
+      #map {
+        width: auto;
+        height: 500px;
+      }
+      
+      .leaflet-control-attribution br {
+        display: none;
+      }
+      .leaflet-control-attribution img {
+        margin: 3px;
+      }
+      .popup-contents {
+        min-width: 290px;
+      }
+      
+      .popup-contents .city {
+        font-weight: bold;
+      }
+      .popup-contents table {
+        margin-top: 1em;
+        width: 100%;
+      }
+      .popup-contents td {
+        padding: 2px 1.5em 2px 0;
+      }
+      .popup-contents td.first-column {
+        text-align: right;
+        width: 60%;
+      }
+      .popup-contents .zoom-button {
+        text-align: right;
+      }
+      .popup-contents tr.total {
+        border-top: 1px solid #DDDDDD;
+      }
+      .popup-contents tr.total td {
+        padding-top: 4px;
+      }
+      .popup-contents tr.last-stat td {
+        padding-bottom: 4px;
+      }
+    </style>
+    
+    <!--[if lte IE 8]>
+      <style type="text/css">
+      	@import url('https://s3.amazonaws.com/data.minnpost/js/leaflet-master-20120531/leaflet.ie.css');
+      	@import url('https://s3.amazonaws.com/data.minnpost/js/leaflet-addons-master-20120531/leaflet-addons.ie.css');
+      </style>
+    <![endif]-->
+    
+    <div id="minnpost-dangerous-intersections-application">
+      
+      <div id="map"></div>
+      <br class="clear" />
+      
+      <p class="footnote">Data from the <a href="http://www.dot.state.mn.us/" target="_blank">Minnesota Department of Transportation</a>.  Map attribution: <a target="_blank" href="http://www.bing.com/maps/">Bing</a> &copy; Harris Corp, Earthstar Geographics LLC &copy; 2012 Microsoft Corporation &copy; 2010 NAVTEQ &copy; and <a target="_blank" href="http://www.microsoft.com/maps/product/terms.html">Terms of Use</a>.</p>
+      
+    </div>
+    
+    <!-- Templates to be used in client side processing. -->
+    <script id="template-popup-contents" type="text/template">
+      <div class="popup-contents">
+        <h3><%= d.name %></h3>
+        <div class="city"><%= d.City %></div>
+        <table><tbody>
+          <tr><td class="first-column">Fatal</td><td><%= d.K %></td></tr>
+          <tr><td class="first-column">Sever injury</td><td><%= d.A %></td></tr>
+          <tr><td class="first-column">Moderate injury</td><td><%= d.B %></td></tr>
+          <tr><td class="first-column">Minor injury</td><td><%= d.C %></td></tr>
+          <tr class="last-stat"><td class="first-column">Property damage</td><td><%= d.PD %></td></tr>
+          <tr class="total"><td class="first-column">Total</td><td><%= d.TOT %></td></tr>
+          <tr><td class="first-column">Crash rate</td><td><strong><%= d.CR %></strong> (per million)</td></tr>
+          <tr><td class="first-column">Overall rank</td><td><%= d['Overall Rank'] %></td></tr>
+        </tbody></table>
+        
+        <div class="zoom-button">
+          <a href="javascript:app.zoom('<%= d.Description %>')" class="zoom-in" data-intersection="<%= d.Description %>">Zoom to this intersection</a>
+        </div>
+      </div>
+    </script>
+  
+    <!-- jQuery if it is not there and jQueryCustom for Backbone --><!-- jQuery -->
+    <script type="text/javascript">
+      window.jQuery || document.write('<script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/jquery-1.7.2/jquery-1.7.2.min.js"><\/script>')
+    </script>
+    <!-- Leaflet and wax for mapping -->
+    <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/leaflet-master-20120531/leaflet.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/leaflet-addons-master-20120531/leaflet-addons.min.js"></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/leaflet-bing/TileLayer.Bing.js"></script>
+    <!-- Underscore -->
+    <script type="text/javascript" src="https://s3.amazonaws.com/data.minnpost/js/underscore-1.3.3/underscore-min.js"></script>
+    
+    
+    <script type="text/javascript">
+      
+      (function($, window, undefined) {
+        $(document).ready(function() {
+          // Application container
+          var AppClass = (function() {
+            function AppClass() {
+              this.data =  {};
+              this.dir = './data/';
+              this.bingAPI = 'Au3QXAseIj8ABkIipShDOm7HPCZvLmKL5JrvL-42jFRoEqu5VwGdbnRf50ylQwCx';
+              this.mapLayerBing = new L.TileLayer.Bing(this.bingAPI, 'AerialWithLabels', {
+              });
+              this.markers = {};
+              this.sysTranslate = {
+                'MNTH': 'MN Highway',
+                'ISTH': 'Interstate',
+                'USTH': 'US Highway',
+                'CSAH': 'County Road'
+              };
+            }
+            
+            AppClass.prototype.launch = function() {
+              this.makeMap();
+              this.addMarkers();
+            };
+            
+            AppClass.prototype.dataDir = function() {
+              if (location.host.indexOf('localhost') === -1) {
+                this.dir = 'https://s3.amazonaws.com/data.minnpost/' +
+                  'projects/minnpost-dangerous-intersections/data/';
+              }
+              
+              return this.dir;
+            };
+            
+            AppClass.prototype.makeMap = function() {
+              // Create map
+              var center = new L.LatLng(45.008505958683955, -93.197021484375);
+              this.map = new L.Map('map', {
+                minZoom: 4,
+                maxZoom: 18,
+                attributionControl: false
+              });
+              this.map.setView(center, 10);
+              this.map.addControl(new L.Control.Fullscreen());
+              this.map.addLayer(this.mapLayerBing);
+            };
+            
+            AppClass.prototype.addMarkers = function() {
+              var thisApp = this;
+            
+              _.each(this.data, function(value, key, list) {
+                var place = new L.LatLng(value.lat, value.lon);
+                thisApp.markers[key] = new L.Marker(place);
+                thisApp.map.addLayer(thisApp.markers[key]);
+                
+                // Add popup
+                value.Sys = thisApp.sysTranslate[value.Sys];
+                thisApp.markers[key].bindPopup(_.template($('#template-popup-contents').html(),
+                  { 'd': value }));
+              });
+            };
+            
+            // Sorry for this
+            AppClass.prototype.zoom = function(desc) {
+              var found = _.find(this.data, function (value) {
+                return value.Description === desc;
+              });
+              console.log(found);
+              this.map.setView(new L.LatLng(found.lat, found.lon), 18);
+            };
+            
+            return AppClass;
+          })();
+          
+          // Make app instance
+          window.app = new AppClass();
+          
+          // Load up the metadata
+          window.intersections_callback = function(data) {
+            app.data = data;
+            app.launch();
+          };
+          $.ajax({
+            type: 'GET',
+            dataType: 'jsonp',
+            url: app.dataDir() + 'intersections.jsonp?callback=intersections_callback',
+            jsonp: 'callback'
+          });
+        });
+      })(jQuery, window);
+      
+    </script>
+  </div>
+  <!-- END: Embeddable -->
+
+</div>
+</body>
+</html>
