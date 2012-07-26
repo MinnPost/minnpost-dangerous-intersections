@@ -218,7 +218,6 @@
               var found = _.find(this.data, function (value) {
                 return value.Description === desc;
               });
-              console.log(found);
               this.map.setView(new L.LatLng(found.lat, found.lon), 18);
             };
             
