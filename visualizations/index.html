@@ -112,7 +112,7 @@
       <div id="map"></div>
       <br class="clear" />
       
-      <p class="footnote">Data from the <a href="http://www.dot.state.mn.us/" target="_blank">Minnesota Department of Transportation</a>.  Map attribution: <a target="_blank" href="http://www.bing.com/maps/">Bing</a> &copy; Harris Corp, Earthstar Geographics LLC &copy; 2012 Microsoft Corporation &copy; 2010 NAVTEQ &copy; and <a target="_blank" href="http://www.microsoft.com/maps/product/terms.html">Terms of Use</a>.</p>
+      <p class="footnote">Data from the <a href="http://www.dot.state.mn.us/" target="_blank">Minnesota Department of Transportation</a>.  Map attribution: <a target="_blank" href="http://mapbox.com/">Mapbox</a>.</p>
       
     </div>
     
@@ -160,6 +160,7 @@
               this.data =  {};
               this.dir = './data/';
               this.bingAPI = 'Av8mFSwpGzyDycGlWH-5tVAlZqRb9j7iu5GbcKLGbwH-9Y5crQJbDFYH5-EN1cIK';
+              this.mapLayerSat = new L.TileLayer('http://{s}.tiles.mapbox.com/v3/minnpost.map-95lgm5jf/{z}/{x}/{y}.png');
               this.mapLayerBing = new L.TileLayer.Bing(this.bingAPI, 'AerialWithLabels', {
               });
               this.markers = {};
@@ -195,7 +196,7 @@
               });
               this.map.setView(center, 10);
               this.map.addControl(new L.Control.Fullscreen());
-              this.map.addLayer(this.mapLayerBing);
+              this.map.addLayer(this.mapLayerSat);
             };
             
             AppClass.prototype.addMarkers = function() {
@@ -218,7 +219,7 @@
               var found = _.find(this.data, function (value) {
                 return value.Description === desc;
               });
-              this.map.setView(new L.LatLng(found.lat, found.lon), 18);
+              this.map.setView(new L.LatLng(found.lat, found.lon), 17);
             };
             
             return AppClass;
